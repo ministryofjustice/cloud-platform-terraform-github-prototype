@@ -8,7 +8,7 @@ resource "github_repository_file" "github-workflow" {
   content             = var.github_workflow_content
   commit_message      = "Managed by github prototype"
   overwrite_on_create = true
-  
+
   depends_on = [github_branch.prototype]
 }
 
