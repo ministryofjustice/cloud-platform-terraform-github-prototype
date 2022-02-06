@@ -6,7 +6,7 @@ Terraform module that creates github prototype files
 
 This module assumes the following:
 
-* User have already have prototype github repository.
+* User already have prototype github repository.
 * Prototype kit code already exists.
 * Prototype kit code is build using JavaScript. Node.js is the runtime and npm is the Package Manager for Node.js modules.
 
