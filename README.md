@@ -26,43 +26,39 @@ module "github-prototype" {
 | Name | Version |
 |------|---------|
 | terraform | >= 0.14 |
+| github | ~> 4.14.0 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
-| aws | n/a |
-| null | n/a |
+| github | ~> 4.14.0 |
 
 ## Modules
 
-| Name | Source | Version |
-|------|--------|---------|
-| irsa_vpc_cni | terraform-aws-modules/iam/aws//modules/iam-assumable-role-with-oidc | 4.6.0 |
+No Modules.
 
 ## Resources
 
 | Name |
 |------|
-| [aws_eks_addon](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/eks_addon) |
-| [aws_iam_policy](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_policy) |
-| [aws_iam_policy_document](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/iam_policy_document) |
-| [null_resource](https://registry.terraform.io/providers/hashicorp/null/latest/docs/resources/resource) |
+| [github_actions_secret](https://registry.terraform.io/providers/integrations/github/latest/docs/resources/actions_secret) |
+| [github_repository_file](https://registry.terraform.io/providers/integrations/github/latest/docs/resources/repository_file) |
 
 ## Inputs
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| addon\_coredns\_version | Version for addon\_coredns\_version | `string` | `"v1.8.3-eksbuild.1"` | no |
-| addon\_create\_coredns | Create coredns addon | `bool` | `true` | no |
-| addon\_create\_kube\_proxy | Create kube\_proxy addon | `bool` | `true` | no |
-| addon\_create\_vpc\_cni | Create vpc\_cni addon | `bool` | `true` | no |
-| addon\_kube\_proxy\_version | Version for addon\_kube\_proxy\_version | `string` | `"v1.20.7-eksbuild.1"` | no |
-| addon\_tags | Cluster addon tags | `map(string)` | `{}` | no |
-| addon\_vpc\_cni\_version | Version for addon\_create\_vpc\_cni | `string` | `"v1.9.3-eksbuild.1"` | no |
-| cluster\_name | Kubernetes cluster name - used to name (id) the auth0 resources | `any` | n/a | yes |
-| cluster\_oidc\_issuer\_url | Used to create the IAM OIDC role | `string` | `""` | no |
-| eks\_cluster\_id | trigger for null resource using eks\_cluster\_id | `any` | n/a | yes |
+| deployment\_file\_content | path of deployment template | `string` | `"templates/kubernetes-deploy.tpl"` | no |
+| dockerfile\_content | path of dockerfile file | `string` | `"templates/Dockerfile"` | no |
+| github\_repositories | GitHub repositories in which to create github actions secrets | `list(string)` | `[]` | no |
+| github\_workflow\_content | path of github\_workflow\_content file | `string` | `"templates/cd.yaml"` | no |
+| namespace | The namespace in which this serviceaccount will be created | `any` | n/a | yes |
+| prototype\_create\_deployment\_file | Create deployment file | `bool` | `true` | no |
+| prototype\_create\_dockerfile | Create dockerfile file | `bool` | `true` | no |
+| prototype\_create\_github\_workflow | Create github\_workflow file | `bool` | `true` | no |
+| prototype\_create\_start\_sh | Create start.sh file | `bool` | `true` | no |
+| start\_sh\_file\_content | path of start\_sh template | `string` | `"templates/start.sh"` | no |
 
 ## Outputs
 
