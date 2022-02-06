@@ -34,26 +34,26 @@ variable "prototype_create_start_sh" {
 }
 
 variable "github_workflow_content" {
-  default     = file("${path.module}/templates/cd.yaml")
+  default     = "templates/cd.yaml"
   description = "path of github_workflow_content file"
   type        = string
 }
 
 variable "dockerfile_content" {
-  default     = file("${path.module}/templates/Dockerfile")
+  default     = "templates/Dockerfile"
   description = "path of dockerfile file"
   type        = string
 }
 
 
 variable "deployment_file_content" {
-  default     = file("${path.module}/templates/kubernetes-deploy.tpl")
+  default     = "templates/kubernetes-deploy.tpl"
   description = "path of deployment template"
   type        = string
 }
 
 variable "start_sh_file_content" {
-  default     = file("${path.module}/templates/start.sh")
+  default     = "templates/start.sh"
   description = "path of start_sh template"
   type        = string
 }
