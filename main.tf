@@ -21,6 +21,16 @@ resource "github_repository_file" "dockerfile" {
   overwrite_on_create = true
 }
 
+resource "github_repository_file" "docker-ignore-file" {
+  count = var.prototype_create_docker_ignore_file ? 1 : 0
+
+  repository          = var.namespace
+  branch              = "main"
+  file                = ".dockerignore"
+  content             = file(coalesce(var.docker_ignore_file_content, "${path.module}/templates/.dockerignore"))
+  commit_message      = "Managed by github prototype"
+  overwrite_on_create = true
+}
 resource "github_repository_file" "deployment-file" {
   count = var.prototype_create_deployment_file ? 1 : 0
 

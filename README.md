@@ -7,8 +7,20 @@ Terraform module that creates github prototype files
 This module assumes the following:
 
 * User already have prototype github repository.
-* Prototype kit code already exists.
+* [Gov.UK Prototype Kit] code already exists in your repository.
 * Prototype kit code is build using JavaScript. Node.js is the runtime and npm is the Package Manager for Node.js modules.
+
+This module creates:
+### Files to build a docker image to run the prototype site
+
+* Dockerfile
+* .dockerignore
+* start.sh
+
+### A continuous deployment (CD) workflow, targeting the Cloud Platform
+
+* .github/workflows/cd.yaml
+* kubernetes-deploy.tpl
 
 ## Usage
 
@@ -67,3 +79,4 @@ No output.
 <!--- END_TF_DOCS --->
 
 
+[Gov.UK Prototype Kit]: https://govuk-prototype-kit.herokuapp.com/docs

@@ -21,6 +21,11 @@ variable "prototype_create_dockerfile" {
   default     = true
 }
 
+variable "prototype_create_docker_ignore_file" {
+  description = "Create dockerfile file"
+  type        = bool
+  default     = true
+}
 variable "prototype_create_deployment_file" {
   description = "Create deployment file"
   type        = bool
@@ -45,6 +50,11 @@ variable "dockerfile_content" {
   type        = string
 }
 
+variable "docker_ignore_file_content" {
+  default     = ""
+  description = "path of docker ignore file file"
+  type        = string
+}
 
 variable "deployment_file_content" {
   default     = ""
