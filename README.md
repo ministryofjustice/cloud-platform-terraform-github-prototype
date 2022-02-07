@@ -7,8 +7,20 @@ Terraform module that creates github prototype files
 This module assumes the following:
 
 * User already have prototype github repository.
-* Prototype kit code already exists.
+* [Gov.UK Prototype Kit] code already exists in your repository.
 * Prototype kit code is build using JavaScript. Node.js is the runtime and npm is the Package Manager for Node.js modules.
+
+This module creates:
+### Files to build a docker image to run the prototype site
+
+* Dockerfile
+* .dockerignore
+* start.sh
+
+### A continuous deployment (CD) workflow, targeting the Cloud Platform
+
+* .github/workflows/cd.yaml
+* kubernetes-deploy.tpl
 
 ## Usage
 
@@ -49,16 +61,18 @@ No Modules.
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| deployment\_file\_content | path of deployment template | `string` | `"templates/kubernetes-deploy.tpl"` | no |
-| dockerfile\_content | path of dockerfile file | `string` | `"templates/Dockerfile"` | no |
+| deployment\_file\_content | path of deployment template | `string` | `""` | no |
+| docker\_ignore\_file\_content | path of docker ignore file file | `string` | `""` | no |
+| dockerfile\_content | path of dockerfile file | `string` | `""` | no |
 | github\_repositories | GitHub repositories in which to create github actions secrets | `list(string)` | `[]` | no |
-| github\_workflow\_content | path of github\_workflow\_content file | `string` | `"templates/cd.yaml"` | no |
+| github\_workflow\_content | path of github\_workflow\_content file | `string` | `""` | no |
 | namespace | The namespace in which this serviceaccount will be created | `any` | n/a | yes |
 | prototype\_create\_deployment\_file | Create deployment file | `bool` | `true` | no |
+| prototype\_create\_docker\_ignore\_file | Create dockerfile file | `bool` | `true` | no |
 | prototype\_create\_dockerfile | Create dockerfile file | `bool` | `true` | no |
 | prototype\_create\_github\_workflow | Create github\_workflow file | `bool` | `true` | no |
 | prototype\_create\_start\_sh | Create start.sh file | `bool` | `true` | no |
-| start\_sh\_file\_content | path of start\_sh template | `string` | `"templates/start.sh"` | no |
+| start\_sh\_file\_content | path of start\_sh template | `string` | `""` | no |
 
 ## Outputs
 
@@ -67,3 +81,4 @@ No output.
 <!--- END_TF_DOCS --->
 
 
+[Gov.UK Prototype Kit]: https://govuk-prototype-kit.herokuapp.com/docs
