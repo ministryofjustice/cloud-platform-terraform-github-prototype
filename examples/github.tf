@@ -20,10 +20,10 @@ module "github-prototype" {
   /*
   # Provide path of files, if you want to use your own template files.
 
-  github_workflow_content          = trimspace(file("templates/cd.yaml"))
-  dockerfile_content               = trimspace(file("templates/Dockerfile"))
-  deployment_file_content          = trimspace(file("templates/kubernetes-deploy.tpl"))
-  start_sh_file_content            = trimspace(file("templates/start.sh"))
+  github_workflow_content          = trimspace("templates/cd.yaml")
+  dockerfile_content               = trimspace("templates/Dockerfile")
+  deployment_file_content          = trimspace("templates/kubernetes-deploy.tpl")
+  start_sh_file_content            = trimspace("templates/start.sh")
 */
 
 }

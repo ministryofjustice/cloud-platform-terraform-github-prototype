@@ -5,7 +5,7 @@ resource "github_repository_file" "github-workflow" {
   repository          = var.namespace
   branch              = "main"
   file                = ".github/workflows/cd.yaml"
-  content             = trimspace(file(var.github_workflow_content))
+  content             = file(coalesce(var.github_workflow_content, "${path.module}/templates/cd.yaml"))
   commit_message      = "Managed by github prototype"
   overwrite_on_create = true
 }
@@ -16,7 +16,7 @@ resource "github_repository_file" "dockerfile" {
   repository          = var.namespace
   branch              = "main"
   file                = "Dockerfile"
-  content             = trimspace(file(var.dockerfile_content))
+  content             = file(coalesce(var.dockerfile_content, "${path.module}/templates/Dockerfile"))
   commit_message      = "Managed by github prototype"
   overwrite_on_create = true
 }
@@ -27,7 +27,7 @@ resource "github_repository_file" "deployment-file" {
   repository          = var.namespace
   branch              = "main"
   file                = "kubernetes-deploy.tpl"
-  content             = trimspace(file(var.deployment_file_content))
+  content             = file(coalesce(var.deployment_file_content, "${path.module}/templates/kubernetes-deploy.tpl"))
   commit_message      = "Managed by github prototype"
   overwrite_on_create = true
 }
@@ -38,7 +38,7 @@ resource "github_repository_file" "start-sh" {
   repository          = var.namespace
   branch              = "main"
   file                = "start.sh"
-  content             = trimspace(file(var.start_sh_file_content))
+  content             = file(coalesce(var.start_sh_file_content, "${path.module}/templates/start.sh"))
   commit_message      = "Managed by github prototype"
   overwrite_on_create = true
 }
