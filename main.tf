@@ -7,7 +7,7 @@ resource "github_repository_file" "github-workflow" {
   file                = ".github/workflows/cd.yaml"
   content             = file(coalesce(var.github_workflow_content, "${path.module}/templates/cd.yaml"))
   commit_message      = "Managed by github prototype"
-  overwrite_on_create = true
+  overwrite_on_create = false
 }
 
 resource "github_repository_file" "dockerfile" {
