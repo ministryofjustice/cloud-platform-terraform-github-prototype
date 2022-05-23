@@ -4,7 +4,7 @@ resource "github_repository_file" "github-workflow" {
 
   repository          = var.namespace
   branch              = var.branch
-  file                = ".github/workflows/cd.yaml"
+  file = var.branch == "main" ? ".github/workflows/cd.yaml" : format("%s-%s.%s",".github/workflows/cd",var.branch,"yaml")
   content             = file(coalesce(var.github_workflow_content, "${path.module}/templates/cd.yaml"))
   commit_message      = "Managed by github prototype"
   overwrite_on_create = false
@@ -36,7 +36,7 @@ resource "github_repository_file" "deployment-file" {
 
   repository          = var.namespace
   branch              = var.branch
-  file                = "kubernetes-deploy.tpl"
+  file                = var.branch == "main" ? "kubernetes-deploy.tpl" : format("%s-%s.%s","kubernetes-deploy",var.branch,"tpl")
   content             = file(coalesce(var.deployment_file_content, "${path.module}/templates/kubernetes-deploy.tpl"))
   commit_message      = "Managed by github prototype"
   overwrite_on_create = true

@@ -46,10 +46,10 @@ spec:
 apiVersion: networking.k8s.io/v1beta1
 kind: Ingress
 metadata:
-  name: prototype-ingress-branch-testing
+  name: prototype-ingress
   annotations:
     kubernetes.io/ingress.class: nginx
-    external-dns.alpha.kubernetes.io/set-identifier: prototype-ingress-branch-testing-${KUBE_NAMESPACE}-green
+    external-dns.alpha.kubernetes.io/set-identifier: prototype-ingress-${KUBE_NAMESPACE}-green
     external-dns.alpha.kubernetes.io/aws-weight: "100"
 spec:
   tls:
