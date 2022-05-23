@@ -55,6 +55,6 @@ resource "github_repository_file" "start-sh" {
 
 resource "github_actions_secret" "prototype" {
   repository      = var.namespace
-  secret_name     = var.branch == "main" ? "PROTOTYPE_NAME" : format("%s_%s","PROTOTYPE_NAME",replace(var.branch,"-","_"))
+  secret_name     = var.branch == "main" ? "PROTOTYPE_NAME" : format("%s_%s","PROTOTYPE_NAME",replace(upper(var.branch),"-","_"))
   plaintext_value = var.branch == "main" ? var.namespace : format("%s-%s",var.namespace,var.branch)
 }
