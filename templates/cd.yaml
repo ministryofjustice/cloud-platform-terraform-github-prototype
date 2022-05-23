@@ -7,13 +7,13 @@ on:
   workflow_dispatch:
   push:
     branches:
-      - 'main'
+      - 'branch-testing'
 
 env:
   ECR_NAME: ${{ secrets.ECR_NAME }}
   KUBE_CLUSTER: ${{ secrets.KUBE_CLUSTER }}
   KUBE_NAMESPACE: ${{ secrets.KUBE_NAMESPACE }}
-  PROTOTYPE_NAME: ${{ secrets.PROTOTYPE_NAME }}
+  PROTOTYPE_NAME: ${{ secrets.PROTOTYPE_NAME_BRANCH_TESTING }}
 
 jobs:
   main:

@@ -67,3 +67,14 @@ variable "start_sh_file_content" {
   description = "path of start_sh template"
   type        = string
 }
+
+variable branch {
+  default = "main"
+  description = "Name of github branch to which the files needs to be pushed"
+  type = string
+}
+
+variable prototype_secret_name {
+  default = "PROTOTYPE_NAME"
+  description = "Name of the github action secret to use for protype name"
+}
