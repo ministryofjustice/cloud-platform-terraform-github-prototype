@@ -1,12 +1,6 @@
-
 variable "namespace" {
   description = "The namespace in which this serviceaccount will be created"
-}
-
-variable "github_repositories" {
-  description = "GitHub repositories in which to create github actions secrets"
-  type        = list(string)
-  default     = []
+  type        = string
 }
 
 variable "prototype_create_github_workflow" {

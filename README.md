@@ -37,46 +37,49 @@ module "github-prototype" {
 
 | Name | Version |
 |------|---------|
-| terraform | >= 0.14 |
-| github | ~> 4.14.0 |
+| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 0.14 |
+| <a name="requirement_github"></a> [github](#requirement\_github) | >= 4.14.0 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
-| github | ~> 4.14.0 |
+| <a name="provider_github"></a> [github](#provider\_github) | >= 4.14.0 |
 
 ## Modules
 
-No Modules.
+No modules.
 
 ## Resources
 
-| Name |
-|------|
-| [github_actions_secret](https://registry.terraform.io/providers/integrations/github/latest/docs/resources/actions_secret) |
-| [github_repository_file](https://registry.terraform.io/providers/integrations/github/latest/docs/resources/repository_file) |
+| Name | Type |
+|------|------|
+| [github_actions_secret.prototype](https://registry.terraform.io/providers/integrations/github/latest/docs/resources/actions_secret) | resource |
+| [github_repository_file.deployment-file](https://registry.terraform.io/providers/integrations/github/latest/docs/resources/repository_file) | resource |
+| [github_repository_file.docker-ignore-file](https://registry.terraform.io/providers/integrations/github/latest/docs/resources/repository_file) | resource |
+| [github_repository_file.dockerfile](https://registry.terraform.io/providers/integrations/github/latest/docs/resources/repository_file) | resource |
+| [github_repository_file.github-workflow](https://registry.terraform.io/providers/integrations/github/latest/docs/resources/repository_file) | resource |
+| [github_repository_file.start-sh](https://registry.terraform.io/providers/integrations/github/latest/docs/resources/repository_file) | resource |
 
 ## Inputs
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| deployment\_file\_content | path of deployment template | `string` | `""` | no |
-| docker\_ignore\_file\_content | path of docker ignore file file | `string` | `""` | no |
-| dockerfile\_content | path of dockerfile file | `string` | `""` | no |
-| github\_repositories | GitHub repositories in which to create github actions secrets | `list(string)` | `[]` | no |
-| github\_workflow\_content | path of github\_workflow\_content file | `string` | `""` | no |
-| namespace | The namespace in which this serviceaccount will be created | `any` | n/a | yes |
-| prototype\_create\_deployment\_file | Create deployment file | `bool` | `true` | no |
-| prototype\_create\_docker\_ignore\_file | Create dockerfile file | `bool` | `true` | no |
-| prototype\_create\_dockerfile | Create dockerfile file | `bool` | `true` | no |
-| prototype\_create\_github\_workflow | Create github\_workflow file | `bool` | `true` | no |
-| prototype\_create\_start\_sh | Create start.sh file | `bool` | `true` | no |
-| start\_sh\_file\_content | path of start\_sh template | `string` | `""` | no |
+| <a name="input_deployment_file_content"></a> [deployment\_file\_content](#input\_deployment\_file\_content) | path of deployment template | `string` | `""` | no |
+| <a name="input_docker_ignore_file_content"></a> [docker\_ignore\_file\_content](#input\_docker\_ignore\_file\_content) | path of docker ignore file file | `string` | `""` | no |
+| <a name="input_dockerfile_content"></a> [dockerfile\_content](#input\_dockerfile\_content) | path of dockerfile file | `string` | `""` | no |
+| <a name="input_github_workflow_content"></a> [github\_workflow\_content](#input\_github\_workflow\_content) | path of github\_workflow\_content file | `string` | `""` | no |
+| <a name="input_namespace"></a> [namespace](#input\_namespace) | The namespace in which this serviceaccount will be created | `string` | n/a | yes |
+| <a name="input_prototype_create_deployment_file"></a> [prototype\_create\_deployment\_file](#input\_prototype\_create\_deployment\_file) | Create deployment file | `bool` | `true` | no |
+| <a name="input_prototype_create_docker_ignore_file"></a> [prototype\_create\_docker\_ignore\_file](#input\_prototype\_create\_docker\_ignore\_file) | Create dockerfile file | `bool` | `true` | no |
+| <a name="input_prototype_create_dockerfile"></a> [prototype\_create\_dockerfile](#input\_prototype\_create\_dockerfile) | Create dockerfile file | `bool` | `true` | no |
+| <a name="input_prototype_create_github_workflow"></a> [prototype\_create\_github\_workflow](#input\_prototype\_create\_github\_workflow) | Create github\_workflow file | `bool` | `true` | no |
+| <a name="input_prototype_create_start_sh"></a> [prototype\_create\_start\_sh](#input\_prototype\_create\_start\_sh) | Create start.sh file | `bool` | `true` | no |
+| <a name="input_start_sh_file_content"></a> [start\_sh\_file\_content](#input\_start\_sh\_file\_content) | path of start\_sh template | `string` | `""` | no |
 
 ## Outputs
 
-No output.
+No outputs.
 
 <!--- END_TF_DOCS --->
 
